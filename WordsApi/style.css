@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto Condensed', sans-serif;
+
+}
+.container{
+   width: 500px;
+   min-height: 700px;
+   background-color: #f1faee;
+   text-align: center;
+   box-shadow: 1px 2px 3px rgba(0,0,0,.7);
+   text-transform: uppercase;
+}
+.container h1{
+    padding: 10px 0 10px 0;
+    font-weight: 700;
+    letter-spacing: 0.3rem;
+    font-size: 5rem;
+}
+.container img{
+    margin-top: 3rem;
+    border-radius: 50%;
+    background-color: none;
+}
+.search__box{
+    margin-top: 1.5rem;
+}
+.search__box input{
+    padding: 10px;
+    font-size: 1.2rem;
+    outline: none;
+    border: none;
+    
+}
+.search__box input:focus{
+    border: 1px solid #000;
+}
+.search__box button{
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+    background-color: #457b9d;
+    
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+.search__box button:hover{
+    filter: brightness(70%)
+}
+.search__box button:active{
+    transform: translateY(-3px);
+}
+.word__meanings{
+    margin-top: 3rem;
+    text-align: start;
+}
+.word__meanings>h5,p{
+    
+    padding: 0.7rem;
+}
+@media screen and (max-width:600px){
+    .container h1{
+        font-size: 30px;
+    }
+   
+    .word__meanings{
+        margin: 10px;
+    }
+}
