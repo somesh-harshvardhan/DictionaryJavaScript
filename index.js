@@ -7,26 +7,31 @@ const input=document.querySelector(".search-input");
 const word__meanings=document.querySelector(".word__meanings");
 const button=document.getElementById("button");
 const loader=document.getElementById("loader");
+const suggestedWord=document.getElementById("suggested-word");
 
 function getWord(){
-    if(searchTerm===""){
-        word__meanings.hidden=true;
-    }else if(wordMeaning!="string"){
-        word__meanings.hidden=false;
-     for(var i=0;i<wordMeaning.length;i++)
-     {   
-         meaning=document.createElement("h5");
-         word__meanings.appendChild(meaning);
-    
-         for(var j=0;j<wordMeaning[i].shortdef.length;j++){
-          meaning.innerHTML+=wordMeaning[i].shortdef[j]+";"+"";
-      }
+    wordMeaning.forEach(word=>{
+        if(typeof word==="string"){
+            suggestedWord.hidden=false;
+            meaning=document.createElement("span");
+            word__meanings.appendChild(meaning);
+            meaning.innerHTML+=word;
+        }else{
+            suggestedWord.hidden=true;
+            meaning=document.createElement("h5");
+            word__meanings.appendChild(meaning);
+            word.shortdef.forEach(def=>{
+                meaning.innerHTML+=def;
+            })
+        }
     }
+    
+    )
 }
    
         
     
-}
+
 
 
 async function getWords(){
@@ -35,6 +40,7 @@ async function getWords(){
     try {
        const response=await fetch(urlApi);
         wordMeaning=await response.json();
+        
         getWord();
        
    
